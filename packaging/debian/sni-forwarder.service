@@ -1,0 +1,16 @@
+[Unit]
+Description=Optimized SNI Forwarder
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/etc/sni-forwarder
+ExecStart=/usr/local/bin/sni-forwarder --config /etc/sni-forwarder/config.json
+Restart=always
+RestartSec=2
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target
