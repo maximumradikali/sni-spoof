@@ -1,6 +1,6 @@
 # SNI Forwarder (Optimized)
 
-Original source is based on an upstream SNI forwarder project.  
+Original source: [`patterniha/SNI-Spoofing`](https://github.com/patterniha/SNI-Spoofing) by [`@patterniha`](https://github.com/patterniha).  
 This version is edited and optimized by **Maximum Radikali**.
 
 Maintainer GitHub: <https://github.com/maximumradikali>
@@ -11,6 +11,27 @@ Recommended repository name: `sni-spoof`
 - `Ethereum (ERC20)`: `0x4680c9A4b69aE6c5F7Ab3aEb9e8A38A9cf72a03A`
 - `TRON (TRX)`: `TUfmAKW8eeHvxhhrfdYb2MRPLNtX28zkVv`
 - `USDT (TRC20)`: `TUfmAKW8eeHvxhhrfdYb2MRPLNtX28zkVv`
+
+### Source And Improvements / منبع و بهینه‌سازی‌ها
+- Upstream source repository: `https://github.com/patterniha/SNI-Spoofing`
+- Original author profile: `https://github.com/patterniha`
+- Main comparison target in this fork is the upstream `patterniha/SNI-Spoofing` source tree.
+- منبع اصلی این پروژه ریپازیتوری `patterniha/SNI-Spoofing` است.
+- این نسخه با حفظ ایده اصلی، توسط **Maximum Radikali** برای اجرا، پایداری، لاگ‌گیری و انتشار بهتر بهینه شده است.
+
+### Differences From The Original Source / تفاوت با سورس اصلی
+- Upstream uses a single `CONNECT_IP`; this fork uses `CONNECT_IPS` with retry and failover support.
+- در سورس اصلی فقط یک `CONNECT_IP` وجود دارد؛ در این فورک از `CONNECT_IPS` با retry و failover استفاده می‌شود.
+- Upstream is effectively Windows-focused with WinDivert assumptions; this fork adds direct-mode fallback for Linux, Debian, and Ubuntu.
+- سورس اصلی عملا ویندوز-محور است و WinDivert را فرض می‌گیرد؛ این فورک حالت fallback مستقیم برای Linux/Debian/Ubuntu دارد.
+- Upstream has minimal runtime visibility; this fork adds structured console/file logging and rotating logs.
+- در سورس اصلی لاگ‌گیری محدود است؛ این فورک لاگ کنسول، فایل و rotation لاگ را اضافه می‌کند.
+- Upstream can terminate the whole process from some connection-level failure paths; this fork handles those failures more safely and keeps the service alive.
+- در سورس اصلی بعضی خطاهای سطح کانکشن می‌توانند کل پروسه را متوقف کنند؛ این فورک این خطاها را امن‌تر مدیریت می‌کند تا سرویس بالا بماند.
+- Upstream has fixed runtime behavior; this fork adds configurable retries, backlog, socket buffers, connection limits, and WinDivert queue tuning.
+- این فورک تنظیمات بیشتری برای کارایی و پایداری دارد: retries، backlog، socket buffer، محدودیت کانکشن و تنظیم صف WinDivert.
+- Upstream has no full release pipeline; this fork adds Windows/Linux/Debian packaging scripts and GitHub Actions release automation.
+- سورس اصلی مسیر کامل ریلیز ندارد؛ این فورک اسکریپت ساخت و workflow ریلیز برای Windows/Linux/Debian اضافه می‌کند.
 
 ---
 
@@ -158,6 +179,7 @@ bash scripts/build_deb.sh 1.0.0
 
 ## فارسی
 
+منبع اصلی: [`patterniha/SNI-Spoofing`](https://github.com/patterniha/SNI-Spoofing) از [`@patterniha`](https://github.com/patterniha)  
 این نسخه از سورس اصلی پروژه گرفته شده و توسط **Maximum Radikali** ادیت و بهینه‌سازی شده است.  
 گیت‌هاب: <https://github.com/maximumradikali>
 نام پیشنهادی ریپو: `sni-spoof`
